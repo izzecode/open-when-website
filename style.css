@@ -1,0 +1,571 @@
+/* premium-style.css - Overwritten style.css */
+:root {
+    /* Soft Gold & White Palette */
+    --bg-base: #FAFAFA;
+    --bg-gradient: linear-gradient(135deg, #FFFCF7 0%, #F5EFEB 100%);
+    --primary-gold: #D4AF37;
+    --light-gold: #F1E5AC;
+    --dark-gold: #9E8224;
+    --text-primary: #2C2C2C;
+    --text-muted: #6B6B6B;
+    --pure-white: #FFFFFF;
+
+    /* Effects */
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.04);
+    --shadow-hover: 0 20px 40px rgba(212, 175, 55, 0.15);
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.6);
+
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-script: 'Great Vibes', cursive;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg-gradient);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 3rem 1rem;
+    overflow-x: hidden;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Ambient Background Animations */
+.ambient-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: -1;
+    opacity: 0.4;
+    animation: float 15s infinite alternate ease-in-out;
+}
+
+.glow-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+    top: -100px;
+    left: -200px;
+}
+
+.glow-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(241, 229, 172, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+    bottom: -100px;
+    right: -100px;
+    animation-delay: -5s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+
+    100% {
+        transform: translateY(30px) scale(1.05);
+    }
+}
+
+/* Typography & Headers */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.hero-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.hero-header h1 {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 600;
+    color: var(--primary-gold);
+    letter-spacing: -0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.hero-header p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+/* Base Animations */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Envelope Grid */
+.envelope-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    padding: 1rem;
+}
+
+@media (max-width: 900px) {
+    .envelope-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .envelope-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .hero-header h1 {
+        font-size: 3rem;
+    }
+}
+
+/* Envelope Card Component */
+.envelope-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 220px;
+}
+
+.envelope-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--primary-gold), rgba(255, 255, 255, 0));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.envelope-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+.envelope-card:hover::before {
+    opacity: 1;
+}
+
+.envelope-number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--primary-gold);
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.envelope-card h2 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+/* Modal Overlay & Basics */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(25, 25, 25, 0.7);
+    backdrop-filter: blur(8px);
+    display: grid;
+    place-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+    padding: 1rem;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.modal {
+    grid-area: 1 / 1;
+    background: var(--pure-white);
+    width: 100%;
+    max-width: 650px;
+    border-radius: 20px;
+    position: relative;
+    padding: 3rem;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(1);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+}
+
+.modal.hidden {
+    transform: scale(0.95);
+    opacity: 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: background 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.close-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--text-primary);
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-gold);
+    font-size: 2.25rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.gold-text {
+    color: var(--primary-gold);
+}
+
+.text-light {
+    color: #f0f0f0;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+/* Modal 1: Countdown Customization */
+.modal-styled-bg {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
+    /* Elegant deep overlay */
+}
+
+.modal-styled-bg .close-btn {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.modal-styled-bg .close-btn:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.modal-styled-bg .glass-panel {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.time-part span {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+}
+
+.time-part small {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+/* Modal 2: Premium Ticket */
+.ticket-container {
+    background: #FFFCF7;
+    border: 2px solid var(--primary-gold);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow-soft);
+}
+
+.ticket-header {
+    background: var(--primary-gold);
+    padding: 1.5rem;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.ticket-header h3 {
+    color: white;
+    margin: 0;
+    font-size: 1.75rem;
+}
+
+.ticket-tag {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: var(--dark-gold);
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 2px;
+}
+
+.ticket-body {
+    padding: 2rem;
+    text-align: center;
+}
+
+.motivational-quote {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--primary-gold);
+    margin-bottom: 1rem;
+}
+
+.achievement-list {
+    list-style: none;
+    text-align: left;
+    margin: 2rem 0;
+    padding: 0;
+}
+
+.achievement-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.achievement-list .check {
+    color: var(--primary-gold);
+}
+
+.premium-button {
+    display: inline-block;
+    background: var(--primary-gold);
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.premium-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+}
+
+/* Media Mods & Cards */
+.media-container video,
+.media-container img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.caption-card,
+.recipe-card {
+    background: #FAFAFA;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-gold);
+}
+
+.humorous-caption {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    font-style: italic;
+}
+
+ul {
+    margin-left: 1.5rem;
+    color: var(--text-primary);
+}
+
+/* Audio & Spotify */
+.audio-player-wrapper audio {
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    outline: none;
+}
+
+.romantic-accent {
+    font-family: var(--font-script);
+    font-size: 1.75rem;
+    color: var(--dark-gold);
+}
+
+/* Modal 6: Romantic Letter */
+.modal-letter-theme {
+    background: #FFFBF5;
+    background-image: radial-gradient(#F1E5AC 0.5px, transparent 0.5px);
+    background-size: 15px 15px;
+}
+
+.letter-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.focal-image img {
+    width: 100%;
+    border-radius: 2px;
+    border: 8px solid white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+}
+
+.focal-image img:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.letter-text {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: #4A4A4A;
+}
+
+.romantic-greeting {
+    font-family: var(--font-script);
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--dark-gold);
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.signature {
+    font-family: var(--font-script);
+    font-size: 2.5rem;
+    color: var(--primary-gold);
+    margin-top: 1rem;
+}
+
+/* Responsive Modals */
+@media (max-width: 600px) {
+    .modal {
+        padding: 2rem 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    .countdown-timer {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .ticket-body {
+        padding: 1.5rem;
+    }
+}

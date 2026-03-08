@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open When... | A Collection of Moments</title>
+    <!-- Premium Google Fonts: Playfair Display for elegance, Inter for modern UI, and Great Vibes for romantic accents -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Ambient moving aesthetic background element -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <header class="hero-header">
+        <h1 class="fade-in-up">Open When...</h1>
+        <p class="fade-in-up delay-1">A collection of moments wrapped in love, just for you.</p>
+    </header>
+
+    <main class="container">
+        <div class="envelope-grid fade-in-up delay-2">
+
+            <button class="envelope-card" aria-label="Open to count the seconds" data-target="modal-1">
+                <div class="envelope-ribbon"></div>
+                <div class="envelope-inner">
+                    <span class="envelope-number">I</span>
+                    <h2>Open to count the seconds</h2>
+                </div>
+            </button>
+
+            <button class="envelope-card" aria-label="Open when you are ready to conquer the world"
+                data-target="modal-2">
+                <div class="envelope-ribbon"></div>
+                <div class="envelope-inner">
+                    <span class="envelope-number">II</span>
+                    <h2>Open when you are ready to conquer the world</h2>
+                </div>
+            </button>
+
+            <button class="envelope-card" aria-label="Open when you need motivation" data-target="modal-3">
+                <div class="envelope-ribbon"></div>
+                <div class="envelope-inner">
+                    <span class="envelope-number">III</span>
+                    <h2>Open when you need motivation</h2>
+                </div>
+            </button>
+
+            <button class="envelope-card" aria-label="Open when you feel stressed or overwhelmed" data-target="modal-4">
+                <div class="envelope-ribbon"></div>
+                <div class="envelope-inner">
+                    <span class="envelope-number">IV</span>
+                    <h2>Open when you feel stressed or overwhelmed</h2>
+                </div>
+            </button>
+
+            <button class="envelope-card" aria-label="Open when you are craving a taste of home" data-target="modal-5">
+                <div class="envelope-ribbon"></div>
+                <div class="envelope-inner">
+                    <span class="envelope-number">V</span>
+                    <h2>Open when you are craving a taste of home</h2>
+                </div>
+            </button>
+
+            <button class="envelope-card" aria-label="Open when you miss me the most" data-target="modal-6">
+                <div class="envelope-ribbon"></div>
+                <div class="envelope-inner">
+                    <span class="envelope-number">VI</span>
+                    <h2>Open when you miss me the most</h2>
+                </div>
+            </button>
+
+        </div>
+    </main>
+
+    <!-- Global Modal Overlay -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+
+        <!-- Modal 1: Countdown -->
+        <article id="modal-1" class="modal hidden modal-styled-bg"
+            style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('assets/sao_paulo_bg.png'); color: #fff;">
+            <button class="close-btn" aria-label="Close modal">&times;</button>
+            <div class="modal-content">
+                <h3 class="gold-text">Our Next Chapter</h3>
+                <p class="subtitle text-light">Counting down to São Paulo...</p>
+
+                <div class="countdown-timer glass-panel" id="countdown-display">
+                    <div class="time-part"><span id="cd-months">0</span> <small>Months</small></div>
+                    <div class="time-part"><span id="cd-days">0</span> <small>Days</small></div>
+                    <div class="time-part"><span id="cd-hours">0</span> <small>Hours</small></div>
+                    <div class="time-part"><span id="cd-minutes">0</span> <small>Minutes</small></div>
+                    <div class="time-part"><span id="cd-seconds">0</span> <small>Seconds</small></div>
+                </div>
+                <p class="romantic-footer">Every second brings me closer to you.</p>
+            </div>
+        </article>
+
+        <!-- Modal 2: Premium Ticket -->
+        <article id="modal-2" class="modal hidden">
+            <button class="close-btn" aria-label="Close modal">&times;</button>
+            <div class="modal-content">
+                <div class="ticket-container">
+                    <div class="ticket-header">
+                        <h3>VIP All-Access</h3>
+                        <span class="ticket-tag">UNSTOPPABLE</span>
+                    </div>
+                    <div class="ticket-body">
+                        <p class="motivational-quote">"The world is yours. Go claim it."</p>
+                        <p>You have everything it takes to succeed. This isn't just a portfolio; it's a testament to
+                            your brilliance.</p>
+
+                        <ul class="achievement-list">
+                            <li><span class="check">✨</span> Google Project Management Certification </li>
+                            <li><span class="check">✨</span> UN Women Social Impact Research </li>
+                            <li><span class="check">✨</span> BecomingU Podcast </li>
+                        </ul>
+
+                        <a href="https://your-portfolio-link.com" target="_blank" class="premium-button">Access
+                            Professional Portfolio</a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Modal 3: Motivation -->
+        <article id="modal-3" class="modal hidden">
+            <button class="close-btn" aria-label="Close modal">&times;</button>
+            <div class="modal-content">
+                <h3>You Can Do Hard Things</h3>
+                <div class="media-container glass-panel">
+                    <!-- Real implementation uses poster and local src placeholder -->
+                    <video controls poster="assets/marathon_poster.png">
+                        <source src="assets/marathon-finish.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="caption-card">
+                    <p class="humorous-caption">If I can drag myself across this finish line looking like a confused
+                        gazelle, you can absolutely crush whatever obstacle is in front of you right now. Take a deep
+                        breath. You've got this.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Modal 4: Calm / Stress -->
+        <article id="modal-4" class="modal hidden">
+            <button class="close-btn" aria-label="Close modal">&times;</button>
+            <div class="modal-content text-center">
+                <h3>Breathe.</h3>
+                <p class="subtitle">Let the noise of the world fade away for a moment.</p>
+
+                <div class="media-container glass-panel spotify-wrap">
+                    <iframe style="border-radius:12px"
+                        src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZqd5JICZI0u?utm_source=generator"
+                        width="100%" height="152" frameBorder="0" allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+                </div>
+
+                <div class="voice-note-container glass-panel mt-2">
+                    <p class="romantic-accent">A little reminder from me:</p>
+                    <div class="audio-player-wrapper">
+                        <audio controls class="styled-audio">
+                            <source src="voice-note.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Modal 5: Taste of Home -->
+        <article id="modal-5" class="modal hidden">
+            <button class="close-btn" aria-label="Close modal">&times;</button>
+            <div class="modal-content">
+                <h3>A Taste of Home</h3>
+                <div class="media-container glass-panel">
+                    <video controls poster="assets/cooking_poster.png">
+                        <source src="assets/cooking-vlog.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="recipe-card glass-panel text-left">
+                    <h4 class="gold-text">My Attempt at Authentic Nigerian Jollof</h4>
+                    <p>I tried recreating that perfect smoky flavor just for you. Here is the secret ingredient list
+                        (and maybe a few improvised moves in the kitchen):</p>
+                    <ul>
+                        <li>Generous amount of love</li>
+                        <li>A heavy hand with the spices</li>
+                        <li>Waiting patiently for the perfect "party" smoke logic</li>
+                    </ul>
+                    <p class="mt-1">It's not as perfect as yours, but I hope it makes you smile.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Modal 6: Romantic Letter -->
+        <article id="modal-6" class="modal hidden modal-letter-theme">
+            <button class="close-btn" aria-label="Close modal">&times;</button>
+            <div class="modal-content">
+                <div class="letter-layout">
+                    <div class="focal-image">
+                        <img src="assets/romantic_us_image.png" alt="A lovely moment of us">
+                    </div>
+                    <div class="letter-text">
+                        <h3 class="romantic-greeting">My Love,</h3>
+                        <p>Even when we are apart, you are always on my mind and in my heart. I wanted to create this
+                            digital space so that no matter what time it is, or how far away I am, you can always feel a
+                            little piece of my love right here waiting for you.</p>
+                        <p>Things might be tough right now, or you might just be missing the sound of my voice. Just
+                            know that I am so incredibly proud of the beautiful, brilliant woman you are. I count down
+                            the days until I can pull you close and hold you again.</p>
+                        <p>You are my home.</p>
+                        <br>
+                        <p>Forever yours,</p>
+                        <p class="signature">[Your Name]</p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
